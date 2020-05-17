@@ -24,7 +24,9 @@ ENV ARCH_BIN=5.3
 ENV INSTALL_DIR=/usr/local
 ENV CMAKE_INSTALL_PREFIX=$INSTALL_DIR
 ENV PACKAGE_OPENCV="-D CPACK_BINARY_DEB=ON"
-RUN apt-add-repository universe && \
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    apt-add-repository universe && \
     apt-get update && \
     apt-get install -y \
         build-essential \
