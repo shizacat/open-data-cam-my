@@ -58,7 +58,7 @@ RUN apt-get update && \
     git clone --branch "$OPENCV_VERSION" https://github.com/opencv/opencv.git && \
     git clone --branch "$OPENCV_VERSION" https://github.com/opencv/opencv_contrib.git && \
     cd $OPENCV_SOURCE_DIR/opencv &&  mkdir build && cd build && \
-    time cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    cmake -D CMAKE_BUILD_TYPE=RELEASE \
         -D CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX} \
         -D WITH_CUDA=ON \
         -D CUDA_ARCH_BIN=${ARCH_BIN} \
@@ -80,7 +80,7 @@ RUN apt-get update && \
         -D WITH_TENGINE=ON \
         $"PACKAGE_OPENCV" \
         ../ && \
-    time make -j$(nproc) && \
+    make -j$(nproc) && \
     make install && \
     ldconfig && \
     apt-get remove cmake build-essential git g++ && \
