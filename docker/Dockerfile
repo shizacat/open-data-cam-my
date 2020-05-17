@@ -1,7 +1,7 @@
 FROM nvcr.io/nvidia/l4t-base:r32.4.2
 
 # Install need packages
-RUN apt-get update -y &&
+RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
         libgstreamer1.0-0 \
         gstreamer1.0-plugins-base \
