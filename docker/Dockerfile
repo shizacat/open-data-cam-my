@@ -25,7 +25,7 @@ ENV INSTALL_DIR=/usr/local
 ENV CMAKE_INSTALL_PREFIX=$INSTALL_DIR
 ENV PACKAGE_OPENCV="-D CPACK_BINARY_DEB=ON"
 RUN apt-get update && \
-    apt-get install -y software-properties-common && \
+    apt-get install -y software-properties-common git && \
     apt-add-repository universe && \
     apt-get update && \
     apt-get install -y \
@@ -83,6 +83,6 @@ RUN apt-get update && \
     time make -j$(nproc) && \
     make install && \
     ldconfig && \
-    apt-get remove cmake build-essential && \
+    apt-get remove cmake build-essential git g++ && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/*
