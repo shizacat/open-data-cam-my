@@ -51,7 +51,7 @@ RUN apt-get update && \
         zlib1g-dev \
         pkg-config \
         qt5-default \
-        g++-aarch64-linux-gnu && \
+        g++ && \
     apt-get install -y python3-dev python3-numpy python3-py python3-pytest && \
     apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev && \
     cd $OPENCV_SOURCE_DIR && \
